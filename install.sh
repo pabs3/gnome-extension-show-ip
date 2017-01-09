@@ -7,7 +7,7 @@ if [ "$UID" = "0" ]; then
     exit 101
 fi
 
-NAME=Show-IP\@kyle.aims.ac.za
+NAME=show-ip\@kyle.aims.ac.za
 
 function compile-translations {
     echo 'Compiling translations...'
