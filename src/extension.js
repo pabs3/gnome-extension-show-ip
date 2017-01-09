@@ -1,6 +1,6 @@
 /*
  * Show Ip menu gnome extension
- * https://github.com/sgaraud/gnome-extension-show-ip
+ * https://github.com/paddatrapper/gnome-extension-show-ip
  * 
  * Copyright (C) 2015 Sylvain Garaud
  * This program is free software: you can redistribute it and/or modify it under 
@@ -28,6 +28,7 @@ const NetworkManager = imports.gi.NetworkManager;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const Convenience = Me.imports.convenience;
+const NetworkPanel = Main.panel.statusArea.aggregateMenu._network;
 
 const Gettext = imports.gettext.domain(Me.metadata['gettext-domain']);
 const _ = Gettext.gettext;
@@ -53,8 +54,8 @@ let Schema = null;
 let settingsChangedPublic = null;
 let settingsChangedIpv6 = null;
 
-const NOT_CONNECTED = _('not connected');
-const NM_NOT_RUNNING = _('NM not running');
+const NOT_CONNECTED = _('IP: Not connected');
+const NM_NOT_RUNNING = _('IP: NM not running');
 const PUBLIC_IP = _('Public IP');
 
 function init() {
@@ -76,24 +77,24 @@ const IpDevice = new Lang.Class({
 
 const IpMenu = new Lang.Class({
     Name: 'IpMenu.IpMenu',
-    Extends: PanelMenu.Button,
+    Extends: PopupMenu.PopupSubMenuMenuItem,
 
     _init: function () {
 
         this.nmStarted = true;
         this.selectedDevice = Schema.get_string('last-device');
 
-        this.parent(0.0, _("Show IP"));
-        let nbox = new St.BoxLayout({style_class: 'panel-status-menu-box'});
+        this.parent(_("IP:"), false);
 
+        /*
         this.label = new St.Label({
             text: '',
             y_expand: true,
             y_align: Clutter.ActorAlign.CENTER
         });
 
-        nbox.add_child(this.label);
-        this.actor.add_child(nbox);
+        this.actor.add_child(this.label);
+        */
 
         this.label.set_text(NOT_CONNECTED);
         this.client = NMC.Client.new();
@@ -179,7 +180,7 @@ const IpMenu = new Lang.Class({
 
         for (let device of this._devices) {
             if (device.ifc == this.selectedDevice) {
-                this.label.set_text(device.ip);
+                this.label.set_text(_("IP: %s").format(device.ip));
                 break;
             }
         }
@@ -346,7 +347,7 @@ const IpMenu = new Lang.Class({
         let that = this.label;
         this._getPublic(function (err, res) {
             if (res != null) {
-                that.set_text(res.trim());
+                that.set_text(_("IP: %s").format(res.trim()));
             }
             else {
                 that.set_text(NOT_CONNECTED);
@@ -385,18 +386,18 @@ let _indicator;
 
 function enable() {
     _indicator = new IpMenu;
-    Main.panel.addToStatusArea('Ip-menu', _indicator);
+    NetworkPanel.menu.addMenuItem(_indicator, 0);
 
     /* Monitor settings changes */
     settingsChangedPublic = Schema.connect('changed::public', function () {
         _indicator.destroy();
         _indicator = new IpMenu;
-        Main.panel.addToStatusArea('Ip-menu', _indicator);
+        NetworkPanel.menu.addMenuItem(_indicator, 0);
     });
     settingsChangedIpv6 = Schema.connect('changed::ipv6', function () {
         _indicator.destroy();
         _indicator = new IpMenu;
-        Main.panel.addToStatusArea('Ip-menu', _indicator);
+        NetworkPanel.menu.addMenuItem(_indicator, 0);
     });
 
 }

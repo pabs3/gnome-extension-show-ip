@@ -1,0 +1,12 @@
+{
+  "description": "Show IP addresses (private or public) in gnome-shell drop-down status menu",
+  "gettext-domain": "show-ip",
+  "name": "Show IP",
+  "settings-schema": "org.gnome.shell.extensions.show-ip",
+  "shell-version": [
+    "3.22"
+  ],
+  "url": "https://gitlab.com/paddatrapper/show-ip-gnome-extension",
+  "uuid": "show-ip@kyle.aims.ac.za",
+  "version": 4
+}

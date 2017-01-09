@@ -1,64 +1,33 @@
-# Show IP in the GNOME Shell
+# Show IP
 
-This GNOME extension (v2) is simply showing current private IP in
-gnome shell status bar if Network Manager is used.  It has a popup
-menu to select manually the network device to display if several are
-activated on the machine. It supports both IPv4 and IPv6. Possibility to 
-display public IP. Button for copying IP address into clipboard. Available in English and French.
+This GNOME extension simply shows the current private IP in gnome shell
+status drop-down if Network Manager is used. It has a popup menu to select
+manually the network device to display if several are activated on the machine.
+It supports both IPv4 and IPv6. Possibility to display public IP. Button for
+copying IP address into clipboard. Available in English and French.
 
-### Screenshots
+## Installation
 
-> Standard IPv4 address. Button for copying address to clipboard.
-
-![show ip extension on gnome shell, ipv4](show_ipv4_screenshot.png?raw=true
- "Show IPv4 gnome extension")
-
-> Support for IPv6 syntax
-
-![show ip extension on gnome shell, ipv6 compatible](show_ipv6_screenshot.png?raw=true
- "Show IPv6 gnome extension")
-
-> Preferences menu for activating Public IP display (not displayed by default)
-
-![show ip extension preference menu](show_ip_pref_menu_screenshot.png?raw=true
- "Show IP pref menu gnome extension")
-
-
-### Installation
-
-#### From gnome extensions website
-
-The extension is available from the
-extensions.gnome.org website. Visit the following link for
-instructions.
-
-https://extensions.gnome.org/extension/941/show-ip/
-
-#### From source
-
-The extension can be installed directly from source,
-either for the convenience of using git or to test the latest version.
+The extension can be installed directly from source, either for the convenience
+of using git or to test the latest version.
 
 Clone the desire branch with git
 
-    git clone https://github.com/sgaraud/gnome-extension-show-ip.git \
-    ~/.local/share/gnome-shell/extensions/show-ip@sgaraud.github.com
+    git clone https://github.com/paddatrapper/gnome-extension-show-ip.git
+    cd gnome-shell-show-ip
+    ./install.sh local-install
 
-A Shell reload is required <code>Alt+F2 r Enter</code> and extension
-has to be enabled with *gnome-tweak-tool*
+A Shell reload is required `Alt+F2 r Enter` and the extension has to be enabled
+with *gnome-tweak-tool*
 
-### Bug Reporting
+## Authors
 
-:sweat_smile: Bugs should be reported to the Github [bug tracker
-issues](https://github.com/sgaraud/gnome-extension-show-ip/issues).
-
-### Authors
-
+  * paddatrapper (Kyle Robbertze)
   * sgaraud (Sylvain Garaud)
   * rigelk (Pierre-Antoine Rault)
   * RaphaelRochet (Raphaël Rochet) 
 
-### License
+## License
 
 Copyright (C) 2015 Sylvain Garaud
 
