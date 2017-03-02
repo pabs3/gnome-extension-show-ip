@@ -57,7 +57,7 @@ function make-zip {
     echo 'Done'
 }
 
-function usage() {
+function usage {
     echo 'Useage: ./install.sh COMMAND'
     echo 'COMMAND:'
     echo "  local-install  install the extension in the user's home directory"
