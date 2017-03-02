@@ -33,7 +33,7 @@ function make-local-install {
 
     echo 'Installing...'
     if [ ! -d $DEST ]; then
-        mkdir $DEST
+        mkdir --parents $DEST
     fi
     cp -r src/* locale $DEST/
 
