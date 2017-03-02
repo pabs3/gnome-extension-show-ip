@@ -57,7 +57,7 @@ function make-zip {
     echo 'Done'
 }
 
-function useage() {
+function usage() {
     echo 'Useage: ./install.sh COMMAND'
     echo 'COMMAND:'
     echo "  local-install  install the extension in the user's home directory"
@@ -75,7 +75,7 @@ case "$1" in
         ;;
 
     * )
-        useage
+        usage
         ;;
 esac
 exit

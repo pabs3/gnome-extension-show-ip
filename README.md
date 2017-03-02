@@ -1,6 +1,6 @@
 # Show IP
 
-This GNOME extension simply shows the current private IP in gnome shell
+This GNOME extension simply shows the current private IP in GNOME shell
 status drop-down if Network Manager is used. It has a popup menu to select
 manually the network device to display if several are activated on the machine.
 It supports both IPv4 and IPv6. Possibility to display public IP. Button for

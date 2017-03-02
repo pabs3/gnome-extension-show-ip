@@ -40,7 +40,7 @@ const _ = Gettext.gettext;
 const Soup = imports.gi.Soup;
 const _httpSession = new Soup.SessionAsync();
 /* This makes the session work under a proxy. The funky syntax here
- * is required because of another libsoup quirk, where there's a gobject
+ * is required because of another libsoup quirk, where there's a GObject
  * property called 'add-feature', designed as a construct property for
  * C convenience.
  */
