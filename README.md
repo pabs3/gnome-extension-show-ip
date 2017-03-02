@@ -13,8 +13,8 @@ of using git or to test the latest version.
 
 Clone the desire branch with git
 
-    git clone https://github.com/paddatrapper/gnome-extension-show-ip.git
-    cd gnome-shell-show-ip
+    git clone https://gitlab.com/paddatrapper/show-ip-gnome-extension.git
+    cd show-ip-gnome-extension
     ./install.sh local-install
 
 A Shell reload is required `Alt+F2 r Enter` and the extension has to be enabled
