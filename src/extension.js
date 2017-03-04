@@ -39,7 +39,7 @@ const _ = Gettext.gettext;
 
 /* Used to request via HTTP the public address to a server. */
 const Soup = imports.gi.Soup;
-const _httpSession = new Soup.SessionAsync();
+const _httpSession = new Soup.Session();
 /* This makes the session work under a proxy. The funky syntax here
  * is required because of another libsoup quirk, where there's a GObject
  * property called 'add-feature', designed as a construct property for
@@ -58,8 +58,8 @@ let Schema = null;
 let settingsChangedPublic = null;
 let settingsChangedIpv6 = null;
 
-const NOT_CONNECTED = _('IP: Not connected');
-const NM_NOT_RUNNING = _('IP: NM not running');
+const NOT_CONNECTED = _('Not connected');
+const NM_NOT_RUNNING = _('NM not running');
 const PUBLIC_IP = _('Public IP');
 
 function init() {
